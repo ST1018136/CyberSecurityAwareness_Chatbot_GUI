@@ -3,6 +3,10 @@ CyberBot - Cybersecurity Awareness Chatbot
 📖 Overview
 CyberBot is an interactive desktop application designed to educate users about cybersecurity best practices. The chatbot provides information on password safety, phishing detection, scam prevention, safe browsing habits, and privacy protection in an engaging, conversational format.
 
+YouTube Video Link:
+https://youtu.be/Bst6Fry-myg?si=HQI1VHAudQHRXFjH
+
+
 ✨ Features
 Core Functionality
 Interactive Chat Interface - Instagram-style chat bubbles with user/bot messages
