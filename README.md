@@ -26,7 +26,7 @@ The **CyberSecurity Awareness Chatbot** is an educational desktop application de
 
 **Purpose:** To raise cybersecurity awareness by providing accessible, interactive learning tools that cover essential topics like password safety, phishing detection, online scams, and privacy protection.
 
-
+ YouTube Video Link: https://youtu.be/Bst6Fry-myg?si=HQI1VHAudQHRXFjH
 ---
 
 ## ✨ Features
