@@ -1,178 +1,103 @@
-# CyberSecurityAwareness_Chatbot_GUI
-CyberBot - Cybersecurity Awareness Chatbot
-📖 Overview
-CyberBot is an interactive desktop application designed to educate users about cybersecurity best practices. The chatbot provides information on password safety, phishing detection, scam prevention, safe browsing habits, and privacy protection in an engaging, conversational format.
+# 🛡️ CyberSecurity Awareness Chatbot
 
-YouTube Video Link:
-https://youtu.be/Bst6Fry-myg?si=HQI1VHAudQHRXFjH
+A comprehensive WPF-based cybersecurity awareness application that combines an interactive chatbot, educational quiz system, task management, and engaging visual elements to promote online safety.
+
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Installation Guide](#installation-guide)
+- [Database Setup](#database-setup)
+- [How to Use](#how-to-use)
+- [Application Features in Detail](#application-features-in-detail)
+- [Class Diagram](#class-diagram)
+- [Screenshots](#screenshots)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## 📌 Overview
+
+The **CyberSecurity Awareness Chatbot** is an educational desktop application designed to help users learn about cybersecurity best practices through interactive conversations, quizzes, and task management. Built with **Windows Presentation Foundation (WPF)** and **.NET Framework 4.7.2**, the application provides a user-friendly interface with modern UI design and engaging animations.
+
+**Purpose:** To raise cybersecurity awareness by providing accessible, interactive learning tools that cover essential topics like password safety, phishing detection, online scams, and privacy protection.
 
 
-✨ Features
-Core Functionality
-Interactive Chat Interface - Instagram-style chat bubbles with user/bot messages
+---
 
-Keyword Recognition - Automatically detects cybersecurity topics and provides relevant responses
+## ✨ Features
 
-Random Responses - Multiple variations for each topic to keep conversations fresh
+### 🤖 AI-Powered Chatbot
+- **Natural Language Processing**: Detects user intent and provides relevant cybersecurity tips
+- **Personalized Experience**: Greets users by name after introduction
+- **Topic Detection**: Automatically identifies topics like passwords, phishing, scams, and more
+- **Context-Aware Responses**: Maintains conversation context for follow-up questions
+- **Voice Greeting**: Plays a welcome audio file when the application starts
 
-Conversation Memory - Remembers user name and interests for personalized interactions
+### 🧠 Cybersecurity Quiz
+- **11 Interactive Questions**: Mix of multiple-choice and true/false questions
+- **Instant Feedback**: Get immediate explanations for correct and incorrect answers
+- **Score Tracking**: Real-time score updates as you progress
+- **30-Minute Timer**: Time limit to add challenge
+- **Progress Tracking**: Shows current question number and total questions
+- **Celebration Effects**: Balloon animations when scoring 8/11 or higher
 
-Sentiment Detection - Adjusts responses based on user's mood (worried, frustrated, curious)
+### 📋 Task Management System
+- **Add Tasks**: Create tasks with titles and descriptions
+- **Set Reminders**: Add reminder dates for important tasks
+- **Complete Tasks**: Mark tasks as done (with visual strikethrough)
+- **Delete Tasks**: Remove unwanted tasks
+- **Persistent Storage**: MySQL database integration for task persistence
+- **Task List View**: Clean, organized display of all tasks
 
-Voice Greeting - Optional audio greeting when the application starts
+### 🎈 Visual Celebrations
+- **Balloon Animations**: Colorful floating balloons for quiz achievements
+- **Smooth Animations**: 60 FPS rendering for fluid motion
+- **Randomized Elements**: Different colors, sizes, and speeds each time
 
-UI Features
-3-Column Layout - Side menu, chat area, and social media footer
+### 📊 Activity Logging
+- **User Activity Tracking**: Logs all major actions (task additions, quiz starts, etc.)
+- **Timestamped Records**: Each entry includes date and time
+- **Recent Activity View**: View last 10 activities
+- **Database Storage**: Persistent activity history
 
-Gradient Side Menu - Blue/pink/purple gradient design
+### 🌐 Social Features
+- **Social Media Integration**: Connect with Facebook, Instagram, Twitter, WhatsApp
+- **Contact Information**: Display phone, email, and website
+- **Location Info**: Shows location details
+- **Security Badges**: Visual trust indicators
 
-Profile Popup - Click contact name to view chatbot profile
+### 🎨 Modern UI Design
+- **Gradient Color Schemes**: Professional purple gradient theme
+- **Glass Effect**: Modern translucent elements
+- **3D Drop Shadows**: Depth effects for buttons and cards
+- **Responsive Layout**: Three-column design with side menu
+- **Emoji Support**: Easy emoji insertion in chat
+- **File Attachment**: Upload and share files in chat
 
-File Attachment - Attach files to messages
+---
 
-Emoji Picker - Quick emoji insertion in messages
+## 🛠️ Technologies Used
 
-3D Shadow Effects - Modern visual design with depth
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| .NET Framework | 4.7.2 | Application framework |
+| WPF | 4.7.2 | UI framework |
+| C# | 7.3+ | Programming language |
+| MySQL | 8.0+ | Database management |
+| MySql.Data | 9.7.0 | MySQL connector |
+| MahApps.Metro.IconPacks | 6.2.1 | Icon library |
+| FontAwesome.WPF | 4.7.0 | Additional icons |
+| Visual Studio | 2019/2022 | IDE |
+| Git | Latest | Version control |
 
-🚀 Installation
-Prerequisites
-Windows 10 or 11
-
-Visual Studio 2022 (or later)
-
-.NET Framework 4.7.2
-
-Steps
-Clone or download the project
-
-Open the solution
-
-text
-Double-click CyberSecurityAwareness_Chatbot_GUI.sln
-Build the solution
-
-text
-Press Ctrl+Shift+B
-Run the application
-
-text
-Press F5
-📁 Project Structure
-text
-CyberSecurityAwareness_Chatbot_GUI/
-├── MainWindow.xaml              # GUI design
-├── MainWindow.xaml.cs           # GUI code-behind
-├── CyberSecurityBot.cs          # Main bot logic
-├── ResponseManager.cs           # Keyword detection & responses
-├── AudioPlayer.cs               # Voice greeting functionality
-├── LogoDisplay.cs               # ASCII art logos
-├── App.xaml                     # Application settings
-├── App.xaml.cs                  # Application entry point
-└── Resources/
-    └── greeting.wav             # Voice greeting audio file (optional)
-🎮 How to Use
-Basic Commands
-You Can Ask	Example
-Password tips	"Tell me about password safety"
-Phishing prevention	"How to spot phishing emails?"
-Scam detection	"What are common online scams?"
-Safe browsing	"How to browse safely?"
-Privacy protection	"Give me privacy tips"
-Conversation Features
-Feature	How to Use
-Tell your name	"My name is John" or "I'm Sarah"
-Get another tip	"Tell me more" or "Another tip"
-Ask for help	"What can I ask?" or "Help"
-Exit	"Exit" or "Goodbye"
-Navigation
-Menu Icon	Function
-🏠 Home	Reset conversation
-📜 History	View chat history
-🔔 Notifications	Check security alerts
-⚙️ Settings	View settings
-🎨 Customization Guide
-Change Colors
-In MainWindow.xaml, modify the gradient colors:
-
-xml
-<LinearGradientBrush x:Key="SideMenuGradient" StartPoint="0,0" EndPoint="0,1">
-    <GradientStop Color="#4A00E0" Offset="0.0"/>  <!-- Change this -->
-    <GradientStop Color="#8E2DE2" Offset="0.3"/>  <!-- Change this -->
-    <GradientStop Color="#FF6B9D" Offset="0.6"/>  <!-- Change this -->
-    <GradientStop Color="#C850C0" Offset="1.0"/>  <!-- Change this -->
-</LinearGradientBrush>
-Change Icons
-Replace emojis in the XAML (look for Text="🏠" etc.) with any emoji you prefer.
-
-Change Contact Information
-In MainWindow.xaml, find COLUMN 3 and update:
-
-xml
-<Run Text="📱 "/><Run Text="+27 123 456 789"/>     <!-- Phone -->
-<Run Text="✉️ "/><Run Text="support@cyberbot.com"/> <!-- Email -->
-<Run Text="🌐 "/><Run Text="www.cyberbot.com"/>     <!-- Website -->
-Add New Response Topics
-In ResponseManager.cs, add to the InitializeResponses() method:
-
-csharp
-_responses["yourtopic"] = new List<string> {
-    "Response 1",
-    "Response 2",
-    "Response 3"
-};
-Then add keyword detection in ProcessInput():
-
-csharp
-if (input.Contains("yourkeyword"))
-{
-    ResponseType = "yourtopic";
-    return GetRandomResponse("yourtopic");
-}
-🛠️ Troubleshooting
-Issue	Solution
-Grid not showing	Remove AllowsTransparency="False" from Window
-Voice not working	Ensure greeting.wav is in Resources folder
-Icons not displaying	Use emojis instead of Font Awesome
-Build errors	Clean solution (Build → Clean) then rebuild
-Third column hidden	Check margin values, remove large numbers
-📝 System Requirements
-Component	Requirement
-OS	Windows 10/11
-Framework	.NET Framework 4.7.2
-RAM	2GB minimum
-Disk Space	50MB
-Visual Studio	2022 (for development)
-🤝 Contributing
-Fork the project
-
-Create a feature branch
-
-Commit your changes
-
-Push to the branch
-
-Open a Pull Request
-
-📄 License
-This project is for educational purposes as part of a cybersecurity awareness assignment.
-
-🙏 Acknowledgments
-Font Awesome Icons (optional package)
-
-Material Design inspiration
-
-Cybersecurity best practices from industry standards
-
-📞 Support
-For issues or questions:
-
-Email: support@cyberbot.com
-
-Phone: +27 123 456 789
-
-Author:
-[Sefako Siphosethu Mongalo]
-[ST10181363]
-
-Diploma in Software Development
-[Programming 2A [Rosebank College Braamfontien]
+### NuGet Packages Used
+```xml
+<package id="MySql.Data" version="9.7.0" />
+<package id="MahApps.Metro.IconPacks" version="6.2.1" />
+<package id="FontAwesome.WPF" version="4.7.0.9" />
+<package id="System.Configuration.ConfigurationManager" version="8.0.0" />
