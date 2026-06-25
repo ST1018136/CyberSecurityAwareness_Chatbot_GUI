@@ -1,57 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CyberSecurityAwareness_Chatbot_GUI
 {
+   
     public class CyberSecurityBot
     {
-        
-        private ResponseManager _responseManager;
-
-        // Tracks whether the bot session is active
-        private bool _isRunning;
-
-        // Auto-property: the user's name (defaults to "Guest" until they tell us)
-        public string UserName { get; private set; }
-
      
-        public string FavouriteTopic { get; private set; }
+        public string UserName { get; set; }  // User's name (personalization)
+
+        // Private field for IsRunning (used with ref parameter)
+        private bool _isRunning;
+        public bool IsRunning
+        {
+            get { return _isRunning; }
+            set { _isRunning = value; }
+        }
+
+        private ResponseManager _responseManager;  // Handles cybersecurity responses
 
         public CyberSecurityBot()
         {
-            _responseManager = new ResponseManager();
             _isRunning = true;
-
-            UserName = "Guest";
-
-            FavouriteTopic = "";
+            UserName = "Guest";  // Default until user introduces themselves
+            _responseManager = new ResponseManager();
         }
+
+ 
+        public string ProcessUserInput(string userInput)
+        {
+            // Check for empty input
+            if (string.IsNullOrWhiteSpace(userInput))
+                return "I didn't catch that. Could you rephrase?";
+
+            // Pass input to ResponseManager for processing
+            return _responseManager.ProcessInput(userInput, UserName, ref _isRunning);
+        }
+
+        
+        // Sets the user's name (personalization)
 
         public void SetUserName(string name)
         {
-            UserName = name;
-        }
-        public void SetFavouriteTopic(string topic)
-        {
-            FavouriteTopic = topic;
-        }
+            if (!string.IsNullOrWhiteSpace(name))
 
-     
-        public string ProcessUserInput(string input)
-        {
-            // Pass the current favourite topic into ResponseManager
-            string response = _responseManager.ProcessInput(input, UserName, FavouriteTopic, ref _isRunning);
-
-            // If ResponseManager detected a new favourite topic, save it here too
-            if (!string.IsNullOrEmpty(_responseManager.FavouriteTopic))
-            {
-                FavouriteTopic = _responseManager.FavouriteTopic;
-            }
-
-            return response;
+                // Capitalize first letter, rest lowercase
+                UserName = char.ToUpper(name[0]) + name.Substring(1).ToLower();
         }
     }
 }

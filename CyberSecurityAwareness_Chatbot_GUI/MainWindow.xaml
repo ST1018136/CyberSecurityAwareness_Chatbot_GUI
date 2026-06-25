@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Height="800" Width="1400"
+        Title="CyberBot - Cybersecurity Assistant"
+        Height="900" 
+        Width="1400"
         WindowStartupLocation="CenterScreen"
-        Background="#1E1E2E"
-        Title="CyberBot - Cybersecurity Assistant">
+        Background="#1E1E2E">
 
     <Window.Resources>
-        <!-- Gradient for the side menu -->
         <LinearGradientBrush x:Key="SideMenuGradient" StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="#4A00E0" Offset="0.0"/>
             <GradientStop Color="#8E2DE2" Offset="0.3"/>
@@ -18,18 +18,12 @@
             <GradientStop Color="#C850C0" Offset="1.0"/>
         </LinearGradientBrush>
 
-        <!-- 3D Effect -->
         <DropShadowEffect x:Key="ThreeDEffect"
                           ShadowDepth="5"
                           BlurRadius="10"
                           Direction="315"
                           Opacity="0.5"
                           Color="#4A00E0"/>
-
-        <DropShadowEffect x:Key="GlowEffect"
-                          ShadowDepth="0"
-                          BlurRadius="20"
-                          Color="#FF6B9D"/>
 
         <!-- Menu Button Style -->
         <Style x:Key="MenuButtonStyle" TargetType="Button">
@@ -39,16 +33,9 @@
             <Setter Property="Height" Value="50"/>
             <Setter Property="Width" Value="Auto"/>
             <Setter Property="Effect" Value="{StaticResource ThreeDEffect}"/>
-            
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#40FFFFFF"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
-                        </Setter.Value>
-                    </Setter>
-                    
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -71,16 +58,9 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Effect" Value="{StaticResource ThreeDEffect}"/>
             <Style.Triggers>
-                
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="#FFD700"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                        </Setter.Value>
-                    </Setter>
                 </Trigger>
-                
             </Style.Triggers>
         </Style>
 
@@ -92,21 +72,15 @@
             <Setter Property="Width" Value="40"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Foreground" Value="#888888"/>
+            <Setter Property="Foreground" Value="White"/>
             <Style.Triggers>
-                
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#4A00E0"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Foreground" Value="#FFD700"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
 
-        <!-- Contact Profile Style -->
+        <!-- Contact Profile Style  -->
         <Style x:Key="ProfileStyle" TargetType="Border">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Height" Value="50"/>
@@ -114,9 +88,114 @@
             <Setter Property="Background" Value="{StaticResource SideMenuGradient}"/>
             <Setter Property="Effect" Value="{StaticResource ThreeDEffect}"/>
         </Style>
+
+        <!--  QuizOptionStyle  -->
+        <Style x:Key="QuizOptionStyle" TargetType="Button">
+            <Setter Property="Background" Value="#3A3A55"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="20,15"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#4A00E0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4A00E0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  TaskButtonStyle  -->
+        <Style x:Key="TaskButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4A00E0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6B2DE2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Send button -->
+        <Style x:Key="SendButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4A00E0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6B2DE2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  profile popup "Start Conversation" button -->
+        <Style x:Key="PopupButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4A00E0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6B2DE2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
-    <!-- Three columns layout -->
+    <!-- Main Grid - 3 Columns -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -124,115 +203,98 @@
             <ColumnDefinition Width="280"/>
         </Grid.ColumnDefinitions>
 
-        <!-- COLUMN 1: SIDE MENU -->
-        <Border Grid.Column="0" Background="{StaticResource SideMenuGradient}"
+        <!-- ========== COLUMN 1: SIDE MENU ========== -->
+        <Border Grid.Column="0" 
+                Background="{StaticResource SideMenuGradient}"
                 CornerRadius="20,0,0,20"
-                BorderThickness="1"
-                BorderBrush="Transparent"
-                ClipToBounds="True"
-                Effect="{StaticResource ThreeDEffect}">
-            <DockPanel LastChildFill="True">
-
-                <!-- ASCII LOGO -->
-                <StackPanel DockPanel.Dock="Top" Margin="0,20,0,0">
+                BorderThickness="0">
+            <DockPanel>
+                <!-- Logo at Top -->
+                <StackPanel DockPanel.Dock="Top" Margin="0,30,0,0">
                     <TextBlock x:Name="SideAsciiLogo"
                                FontFamily="Consolas"
                                FontSize="9"
                                Foreground="White"
                                TextAlignment="Center"
                                TextWrapping="Wrap"
-                               Margin="10,0,10,0"
                                FontWeight="Bold"/>
-                    <TextBlock Text="CYBERBOT" FontSize="17" FontWeight="Bold"
-                               Foreground="White" HorizontalAlignment="Center"
-                               Margin="0,10,0,0"/>
-                    <TextBlock Text="Cyber Security Assistant" FontSize="12"
-                               Foreground="#E0E0E0" HorizontalAlignment="Center"
-                               Margin="0,5,0,5"/>
+                    <TextBlock Text="CYBERBOT" 
+                               FontSize="17" 
+                               FontWeight="Bold"
+                               Foreground="White" 
+                               HorizontalAlignment="Center"
+                               Margin="0,15,0,0"/>
+                    <TextBlock Text="Cyber Security Assistant" 
+                               FontSize="11"
+                               Foreground="#E0E0E0" 
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,20"/>
                 </StackPanel>
 
-                <!-- Menu Icons with Emojis -->
-                <StackPanel DockPanel.Dock="Top" Margin="0,20,0,0">
+                <!-- Menu Items -->
+                <StackPanel DockPanel.Dock="Top">
                     <Button x:Name="MenuHome" Click="MenuButton_Click" Style="{StaticResource MenuButtonStyle}">
                         <StackPanel Orientation="Horizontal" Margin="20,0">
-                            <TextBlock Text="🏠" FontSize="18" Width="20" Foreground="White"/>
-                            <TextBlock Text="Home" FontSize="15" Foreground="White" VerticalAlignment="Center"
-                                       Margin="15,0,0,0"/>
+                            <TextBlock Text="🏠" FontSize="18" Width="30" Foreground="White"/>
+                            <TextBlock Text="Home" FontSize="15" Foreground="White" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-
                     <Button x:Name="MenuHistory" Click="MenuButton_Click" Style="{StaticResource MenuButtonStyle}">
                         <StackPanel Orientation="Horizontal" Margin="20,0">
-                            <TextBlock Text="📜" FontSize="18" Width="20" Foreground="White"/>
-                            <TextBlock Text="History" FontSize="15" Foreground="White" VerticalAlignment="Center"
-                                       Margin="15,0,0,0"/>
+                            <TextBlock Text="📜" FontSize="18" Width="30" Foreground="White"/>
+                            <TextBlock Text="History" FontSize="15" Foreground="White" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-
                     <Button x:Name="MenuNotifications" Click="MenuButton_Click" Style="{StaticResource MenuButtonStyle}">
                         <StackPanel Orientation="Horizontal" Margin="20,0">
-                            <TextBlock Text="🔔" FontSize="18" Width="20" Foreground="White"/>
-                            <TextBlock Text="Notifications" FontSize="15" Foreground="White" VerticalAlignment="Center"
-                                       Margin="15,0,0,0"/>
+                            <TextBlock Text="🔔" FontSize="18" Width="30" Foreground="White"/>
+                            <TextBlock Text="Notifications" FontSize="15" Foreground="White" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
 
-                <!-- Settings menu at bottom -->
+                <!-- Settings at Bottom -->
                 <StackPanel DockPanel.Dock="Bottom" Margin="0,0,0,30">
                     <Button x:Name="MenuSettings" Click="MenuButton_Click" Style="{StaticResource MenuButtonStyle}">
                         <StackPanel Orientation="Horizontal" Margin="20,0">
-                            <TextBlock Text="⚙️" FontSize="18" Width="20" Foreground="White"/>
-                            <TextBlock Text="Settings" FontSize="15" Foreground="White" VerticalAlignment="Center" 
-                                       Margin="15,0,0,0"/>
+                            <TextBlock Text="⚙️" FontSize="18" Width="30" Foreground="White"/>
+                            <TextBlock Text="Settings" FontSize="15" Foreground="White" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
             </DockPanel>
         </Border>
 
-        <!-- COLUMN 2: CHAT AREA -->
+        <!-- ========== COLUMN 2: CHAT AREA ========== -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- ASCII ART BACKGROUND -->
-            <Border Grid.Row="0" Grid.RowSpan="3" Background="#000000" Opacity="0.3">
+            <!-- Background Logo -->
+            <Border Grid.Row="0" Grid.RowSpan="5" Background="#0D0D1A" Opacity="0.3">
                 <TextBlock x:Name="BackgroundAsciiLogo"
                            FontFamily="Consolas"
-                           FontSize="8"
-                           
-                           TextBlock.Foreground="White"
-                          
+                           FontSize="7"
+                           Foreground="#8E2DE2"
                            TextAlignment="Center"
-                           Text="-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~                                                                                                    ~
--- ~    .-._   .-._.    .                       .-.                               .    .-.              ~
--- ~  .: (_)`-'       .'                .;;;.`-'                         .-.  ...;... (_) )-.           ~
--- ~  ::     .    .-.;-.   .-.   .;.::.;;  (_).-.  .-.     ,  :    .;.::.`-'   .'.    .-.: __)   .-.    ~
--- ~  ::   _  `:  ; ;   ;.;.-'   .;    `;;;..;.-' ;       ;   ;    .;   ;'   .;   `:  ;.:'   `. ;   ;'  ~
--- ~  `: .; )  `.'.'`::'`-`:::'.;'     _   `:`:::'`;;;;'.'`..:;._.;' _.;:._.;      `.' :'      )`;;'    ~
--- ~    `--'-.;'                      (_.;;;'                                   -.;'(_/  `----'         ~
--- ~     ...;...                                                                                        ~
--- ~      .'                                                                                            ~
--- ~    .;                                                                                              ~
--- ~  .;                                                                                                ~
--- ~                                                                                                    ~
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"
                            TextWrapping="Wrap"
-                           Opacity="0.25"
+                           Opacity="0.3"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center" Height="110"/>
+                           HorizontalAlignment="Center"/>
             </Border>
 
-            <!-- CONTACT HEADER -->
-            <Border Grid.Row="0" Background="#2a2a3e" BorderBrush="#4A00E0"
-                    BorderThickness="0,0,0,1" Effect="{StaticResource ThreeDEffect}"
-                    Cursor="IBeam" MouseLeftButtonDown="ContactHeader_Click">
+            <!-- CONTACT HEADER (Row 0) -->
+            <Border Grid.Row="0" 
+                    Background="#2A2A3E" 
+                    BorderBrush="#4A00E0"
+                    BorderThickness="0,0,0,1"
+                    Cursor="Hand" 
+                    MouseLeftButtonDown="ContactHeader_Click">
                 <Grid Margin="15,12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -240,13 +302,10 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Profile Picture -->
                     <Border Style="{StaticResource ProfileStyle}" Grid.Column="0">
-                        <TextBlock Text="🛡️" FontSize="28" TextAlignment="Center" Foreground="White"
-                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="🛡️" FontSize="28" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
 
-                    <!-- Contact Info -->
                     <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
                         <TextBlock x:Name="ContactName" Text="CyberBot Assistant"
                                    FontSize="16" FontWeight="Bold" Foreground="White"/>
@@ -254,28 +313,25 @@
                                    FontSize="11" Foreground="#4CAF50"/>
                     </StackPanel>
 
-                    <!-- Online Indicator -->
-                    <Border Grid.Column="2" Width="11" Height="11" CornerRadius="5"
-                            Background="#4CAF50" Margin="0,0,10,0" VerticalAlignment="Center">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="5" ShadowDepth="0"
-                                              Opacity="0.8" Color="#4CAF50"/>
-                        </Border.Effect>
-                    </Border>
+                    <Border Grid.Column="2" Width="10" Height="10" CornerRadius="5"
+                            Background="#4CAF50" Margin="0,0,10,0" VerticalAlignment="Center"/>
                 </Grid>
             </Border>
 
-            <!-- CHATBOT PROFILE POPUP -->
-            <Popup x:Name="ChatbotProfilePopup" PlacementTarget="{Binding ElementName=ChatScrollViewer}"
-                   Placement="Center" StaysOpen="False" Width="300" Height="400">
+            <!-- PROFILE POPUP -->
+            <Popup x:Name="ChatbotProfilePopup" 
+                   PlacementTarget="{Binding ElementName=ContactName}"
+                   Placement="Bottom" 
+                   StaysOpen="False" 
+                   Width="300" 
+                   Height="400">
                 <Border Background="White" CornerRadius="15" BorderBrush="#4A00E0"
                         BorderThickness="2" Effect="{StaticResource ThreeDEffect}">
                     <StackPanel Margin="20">
-                        <!-- Profile Image -->
-                        <Border Width="80" Height="80" CornerRadius="50" 
+                        <Border Width="80" Height="80" CornerRadius="40" 
                                 Background="{StaticResource SideMenuGradient}"
                                 HorizontalAlignment="Center" Margin="0,20,0,10">
-                            <TextBlock Text="🛡️" FontSize="50" TextAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="🛡️" FontSize="40" TextAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
 
                         <TextBlock Text="CyberBot Assistant" FontSize="18" FontWeight="Bold" 
@@ -285,7 +341,6 @@
 
                         <Border Height="1" Background="#E0E0E0" Margin="0,15,0,15"/>
 
-                        <!-- About Section -->
                         <TextBlock Text="About" FontWeight="Bold" Margin="0,0,0,5"/>
                         <TextBlock Text="Hello! I am here to help you stay safe online." 
                                    FontSize="11" TextWrapping="Wrap" Foreground="#555" Margin="0,0,0,10"/>
@@ -296,27 +351,72 @@
                         <TextBlock Text="• Scam Prevention" FontSize="11" Margin="10,2"/>
                         <TextBlock Text="• Safe Browsing" FontSize="11" Margin="10,2"/>
 
-                        <Button Content="Start Conversation" 
-                                Background="#4A00E0" Foreground="White"
-                                BorderThickness="0"
-                                Height="40" Margin="0,20,0,10"
-                                Cursor="Hand" Click="CloseProfilePopup"/>
+                        <!-- FIX: Used PopupButtonStyle with ControlTemplate instead of raw CornerRadius -->
+                        <Button Content="Start Conversation"
+                                Style="{StaticResource PopupButtonStyle}"
+                                Height="35" Margin="0,20,0,10"
+                                Padding="10,5"
+                                Click="CloseProfilePopup"/>
                     </StackPanel>
                 </Border>
             </Popup>
 
-            <!-- CHAT MESSAGES AREA -->
-            <ScrollViewer x:Name="ChatScrollViewer" Grid.Row="1" VerticalScrollBarVisibility="Auto"
+            <!-- TASK PANEL (Row 1) -->
+            <Border Grid.Row="1" Background="#1A1A2E" Margin="15,5,15,5" 
+                    CornerRadius="15" Padding="15" x:Name="TaskPanel"
+                    Visibility="Visible">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="📋 Task Assistant" FontSize="14" FontWeight="Bold" 
+                                   Foreground="White" VerticalAlignment="Center"/>
+                        <Button x:Name="RefreshTasksButton" Content="🔄" 
+                                Background="Transparent" Foreground="White" 
+                                BorderThickness="0"
+                                Click="RefreshTasksButton_Click" Margin="10,0,0,0"
+                                Cursor="Hand" FontSize="16"/>
+                    </StackPanel>
+
+                    <!-- Add Task Section -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+                        
+                        <Border Width="250" Background="#2A2A3E" CornerRadius="8">
+                            <TextBox x:Name="TaskInputBox" Padding="10,8"
+                                     Background="Transparent" Foreground="White"
+                                     BorderThickness="0"
+                                     KeyDown="TaskInputBox_KeyDown"/>
+                        </Border>
+                        <Button x:Name="AddTaskButton" Content="➕ Add Task" 
+                                Style="{StaticResource TaskButtonStyle}"
+                                Click="AddTaskButton_Click" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <!-- Task List -->
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" MaxHeight="150">
+                        <StackPanel x:Name="TaskListPanel"/>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- CHAT MESSAGES AREA (Row 2) -->
+            <ScrollViewer x:Name="ChatScrollViewer" 
+                          Grid.Row="2" 
+                          VerticalScrollBarVisibility="Auto"
                           Background="Transparent">
                 <StackPanel x:Name="ChatMessagesPanel" Margin="15,20"/>
             </ScrollViewer>
 
-            <!-- INPUT AREA -->
-            <Border Grid.Row="2" Background="White" Margin="15,10,15,20" 
-                    CornerRadius="5" Padding="5"
-                    BorderThickness="1" BorderBrush="Transparent"
-                    ClipToBounds="True"
-                    Effect="{StaticResource ThreeDEffect}">
+            <!-- INPUT AREA (Row 3) -->
+            <Border Grid.Row="3" 
+                    Background="#2A2A3E" 
+                    Margin="15,10,15,10" 
+                    CornerRadius="25" 
+                    Padding="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -325,128 +425,162 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Attach File Button -->
                     <Button x:Name="BtnAttachFile" Grid.Column="0" 
                             Style="{StaticResource InputIconStyle}"
-                            Foreground="White"
-                            Background="{StaticResource SideMenuGradient}"
                             Click="BtnAttachFile_Click"
-                            ToolTip="Attach File">
-                        <TextBlock Text="📎" FontSize="19"/>
+                            ToolTip="Attach File"
+                            Margin="5,0,0,0">
+                        <TextBlock Text="📎" FontSize="18"/>
                     </Button>
 
-                    <!-- Input TextBox with Placeholder -->
                     <Grid Grid.Column="1" Margin="5,0">
                         <TextBox x:Name="UserInputTextBox" 
                                  BorderThickness="0" 
                                  FontSize="14" 
-                                 Padding="10,12"
-                                 Background="White"
+                                 Padding="10,10"
+                                 Background="#3A3A55"
+                                 Foreground="White"
                                  KeyDown="UserInputTextBox_KeyDown"/>
                         <TextBlock x:Name="PlaceholderText" 
                                    Text="Write your message..." 
                                    FontSize="14" 
-                                   Foreground="#000000"
+                                   Foreground="#888888"
                                    IsHitTestVisible="False"
                                    VerticalAlignment="Center"
                                    Margin="10,0,0,0"
                                    Visibility="Visible"/>
                     </Grid>
 
-                    <!-- Emoji Button -->
                     <Button x:Name="BtnEmoji" Grid.Column="2" 
                             Style="{StaticResource InputIconStyle}"
                             Click="BtnEmoji_Click"
-                            Background="{StaticResource SideMenuGradient}"
-                            Foreground="White"
                             ToolTip="Add Emoji">
-                        <TextBlock Text="😊" FontSize="20"/>
+                        <TextBlock Text="😊" FontSize="18"/>
                     </Button>
 
-                    <!-- Send Button -->
-                    <Button x:Name="SendButton" Grid.Column="3" 
-                            Content="➤" FontSize="18" 
-                            Width="40" Height="35" 
-                            Background="#4A00E0" Foreground="White"
-                            BorderThickness="0" 
-                            Click="SendButton_Click" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0"
+                    <!-- SendButtonStyle  -->
+                    <Button x:Name="SendButton" Grid.Column="3"
+                            Content="➤" FontSize="18"
+                            Width="40" Height="35"
+                            Style="{StaticResource SendButtonStyle}"
+                            Click="SendButton_Click"
+                            Margin="5,0,5,0"
                             ToolTip="Send Message"/>
                 </Grid>
             </Border>
+
+            <!-- QUIZ POPUP -->
+            <Popup x:Name="QuizPopup" 
+                   Placement="Center" 
+                   AllowsTransparency="True" 
+                   PopupAnimation="Fade"
+                   Width="700" Height="600"
+                   IsOpen="False">
+                <Border Background="#1A1A2E" CornerRadius="20" 
+                        BorderBrush="#FFD700" BorderThickness="3"
+                        Effect="{StaticResource ThreeDEffect}">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,15">
+                            <TextBlock Text="🧠 Cybersecurity Quiz" FontSize="20" 
+                                       FontWeight="Bold" Foreground="White"/>
+                            <TextBlock x:Name="QuizTimer" Text="⏱️ 30:00" FontSize="16" 
+                                       Foreground="#FFD700" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="QuizScore" Text="Score: 0/0" FontSize="16" 
+                                       Foreground="#4CAF50" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <Border Grid.Row="1" CornerRadius="15" 
+                                Background="#2A2A3E" Padding="30,20" Margin="0,0,0,20">
+                            <TextBlock x:Name="QuizQuestionText" Text="Question here" 
+                                       FontSize="18" Foreground="White" 
+                                       TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+
+                        <UniformGrid Grid.Row="2" Rows="2" Columns="2" Margin="0,0,0,20">
+                            <Button x:Name="QuizOption1" Content="A" 
+                                    Style="{StaticResource QuizOptionStyle}" 
+                                    Click="QuizOption_Click" Tag="0"/>
+                            <Button x:Name="QuizOption2" Content="B" 
+                                    Style="{StaticResource QuizOptionStyle}" 
+                                    Click="QuizOption_Click" Tag="1"/>
+                            <Button x:Name="QuizOption3" Content="C" 
+                                    Style="{StaticResource QuizOptionStyle}" 
+                                    Click="QuizOption_Click" Tag="2"/>
+                            <Button x:Name="QuizOption4" Content="D" 
+                                    Style="{StaticResource QuizOptionStyle}" 
+                                    Click="QuizOption_Click" Tag="3"/>
+                        </UniformGrid>
+
+                        <TextBlock x:Name="QuizFeedback" Grid.Row="3" 
+                                   FontSize="14" Foreground="#FFD700" 
+                                   TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Popup>
+
+            <!-- BALLOON CANVAS -->
+            <Canvas x:Name="BalloonCanvas" Grid.Row="0" Grid.RowSpan="5"
+                    Background="Transparent" 
+                    Visibility="Collapsed" 
+                    IsHitTestVisible="False"/>
         </Grid>
 
-        <!-- COLUMN 3: SOCIAL MEDIA FOOTER -->
-        <Border Grid.Column="2" Background="{StaticResource SideMenuGradient}" 
+        <!-- ========== COLUMN 3: SOCIAL MEDIA / CONTACT ========== -->
+        <Border Grid.Column="2" 
+                Background="{StaticResource SideMenuGradient}" 
                 CornerRadius="0,20,20,0"
-                BorderThickness="1"
-                BorderBrush="Transparent"
-                ClipToBounds="True"
-                Effect="{StaticResource ThreeDEffect}">
-
+                BorderThickness="0">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="20,30,20,30">
                     <TextBlock Text="📱 CONNECT WITH US" 
-                               FontSize="14" 
-                               FontWeight="Bold" 
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,20"/>
+                               FontSize="14" FontWeight="Bold" Foreground="White"
+                               HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                     <WrapPanel HorizontalAlignment="Center" Margin="0,0,0,25">
-                        <!-- Facebook -->
                         <Button x:Name="BtnFacebook" Style="{StaticResource SocialIconStyle}" Click="SocialMedia_Click" ToolTip="Facebook">
-                            <TextBlock Text="📘" FontSize="24" Foreground="White"/>
+                            <TextBlock Text="📘" FontSize="24"/>
                         </Button>
-
-                        <!-- Instagram -->
                         <Button x:Name="BtnInstagram" Style="{StaticResource SocialIconStyle}" Click="SocialMedia_Click" ToolTip="Instagram">
-                            <TextBlock Text="📷" FontSize="24" Foreground="White"/>
+                            <TextBlock Text="📷" FontSize="24"/>
                         </Button>
-
-                        <!-- Twitter -->
                         <Button x:Name="BtnTwitter" Style="{StaticResource SocialIconStyle}" Click="SocialMedia_Click" ToolTip="Twitter">
-                            <TextBlock Text="X" FontSize="24" Foreground="White"/>
+                            <TextBlock Text="🐦" FontSize="24"/>
                         </Button>
-
-                        <!-- WhatsApp -->
                         <Button x:Name="BtnWhatsApp" Style="{StaticResource SocialIconStyle}" Click="SocialMedia_Click" ToolTip="WhatsApp">
-                            <TextBlock Text="💬" FontSize="24" Foreground="White"/>
+                            <TextBlock Text="💬" FontSize="24"/>
                         </Button>
                     </WrapPanel>
 
                     <Border Height="1" Background="#40FFFFFF" Margin="10,10,10,20"/>
 
                     <TextBlock Text="📞 CONTACT US" 
-                               FontSize="14" 
-                               FontWeight="Bold" 
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,15"/>
+                               FontSize="14" FontWeight="Bold" Foreground="White"
+                               HorizontalAlignment="Center" Margin="0,0,0,15"/>
 
                     <StackPanel Margin="10,0">
                         <TextBlock Style="{StaticResource ContactTextStyle}">
-                            <Run Text="📱 "/><Run Text="+27 123 456 789" FontWeight="Bold"/>
+                            <Run Text="📱 "/><Run Text="+27 123 456 789"/>
                         </TextBlock>
-
                         <TextBlock Style="{StaticResource ContactTextStyle}">
-                            <Run Text="✉️ "/><Run Text="support@cyberbot.com" FontWeight="Bold"/>
+                            <Run Text="✉️ "/><Run Text="support@cyberbot.com"/>
                         </TextBlock>
-
                         <TextBlock Style="{StaticResource ContactTextStyle}">
-                            <Run Text="🌐 "/><Run Text="www.cyberbot.com" FontWeight="Bold"/>
+                            <Run Text="🌐 "/><Run Text="www.cyberbot.com"/>
                         </TextBlock>
                     </StackPanel>
 
                     <Border Height="1" Background="#40FFFFFF" Margin="10,20,10,20"/>
 
                     <TextBlock Text="📍 LOCATION" 
-                               FontSize="14" 
-                               FontWeight="Bold" 
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,15"/>
+                               FontSize="14" FontWeight="Bold" Foreground="White"
+                               HorizontalAlignment="Center" Margin="0,0,0,15"/>
 
                     <StackPanel Margin="10,0">
                         <TextBlock Style="{StaticResource ContactTextStyle}" TextAlignment="Center">
@@ -457,34 +591,24 @@
                     <Border Height="1" Background="#40FFFFFF" Margin="10,20,10,20"/>
 
                     <TextBlock Text="🛡️ SECURED BY" 
-                               FontSize="14" 
-                               FontWeight="Bold" 
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,15"/>
+                               FontSize="14" FontWeight="Bold" Foreground="White"
+                               HorizontalAlignment="Center" Margin="0,0,0,15"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Border Width="50" Height="50" CornerRadius="10" Background="#40FFFFFF" Margin="5"
-                                BorderThickness="1" BorderBrush="Transparent">
-                            <TextBlock Text="🔒" FontSize="28" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Border Width="45" Height="45" CornerRadius="10" Background="#40FFFFFF" Margin="5">
+                            <TextBlock Text="🔒" FontSize="24" TextAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
-
-                        <Border Width="50" Height="50" CornerRadius="10" Background="#40FFFFFF" Margin="5"
-                                BorderThickness="1" BorderBrush="Transparent">
-                            <TextBlock Text="🛡️" FontSize="28" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Border Width="45" Height="45" CornerRadius="10" Background="#40FFFFFF" Margin="5">
+                            <TextBlock Text="🛡️" FontSize="24" TextAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
-
-                        <Border Width="50" Height="50" CornerRadius="10" Background="#40FFFFFF" Margin="5"
-                                BorderThickness="1" BorderBrush="Transparent">
-                            <TextBlock Text="✅" FontSize="28" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Border Width="45" Height="45" CornerRadius="10" Background="#40FFFFFF" Margin="5">
+                            <TextBlock Text="✅" FontSize="24" TextAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </StackPanel>
 
-                    <TextBlock Text="Version 2.0" 
-                               FontSize="10" 
-                               Foreground="#80FFFFFF"
-                               HorizontalAlignment="Center"
-                               Margin="0,30,0,0"/>
+                    <TextBlock Text="Version 3.0" 
+                               FontSize="10" Foreground="#80FFFFFF"
+                               HorizontalAlignment="Center" Margin="0,30,0,0"/>
                 </StackPanel>
             </ScrollViewer>
         </Border>

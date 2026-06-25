@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Media;
 using System.IO;
-using System.Threading.Tasks;
+using ThreadingTask = System.Threading.Tasks.Task;
 
 namespace CyberSecurityAwareness_Chatbot_GUI
 {
@@ -16,7 +16,7 @@ namespace CyberSecurityAwareness_Chatbot_GUI
                 string[] paths = {
                     "greeting.wav",
                     Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "greeting.wav"),
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "resources", "greeting.wav.wav")
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "greeting.wav")
                 };
 
                 string found = null;
@@ -39,6 +39,7 @@ namespace CyberSecurityAwareness_Chatbot_GUI
                 {
                     player.PlaySync();
                 }
+
                 IsAudioAvailable = true;
             }
             catch (Exception)
@@ -47,9 +48,9 @@ namespace CyberSecurityAwareness_Chatbot_GUI
             }
         }
 
-        public async Task PlayVoiceGreetingAsync()
+        public async ThreadingTask PlayVoiceGreetingAsync()
         {
-            await Task.Run(() => PlayVoiceGreeting());
+            await ThreadingTask.Run(() => PlayVoiceGreeting());
         }
     }
 }
